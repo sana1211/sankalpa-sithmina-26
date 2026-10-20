@@ -1,0 +1,11 @@
+Portfolio V4.16 — Deep Navy + Soft Violet + Off-White
+Navy: #111A33
+Very dark navy: #0B1228
+Violet: #BDA7FF
+Off-white: #E8E4FF
+Muted text: #AEB9DF
+
+Theme rules: src/styles.css (V4.16 block)
+ID lanyard fabric accent: src/components/ThreeHeroStage.tsx
+Front/back printed ID accent: src/assets/lanyard-front.png / lanyard-back.png
+Original brand logos preserved.

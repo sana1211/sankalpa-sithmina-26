@@ -1,0 +1,193 @@
+/* About Me — centered editorial copy, scoped so no other page sections change. */
+#about.about-v2-centered .about-centered-card {
+  min-height: 0;
+  padding: clamp(26px, 4.2vw, 60px);
+}
+
+#about.about-v2-centered .about-centered-card::before {
+  right: -3%;
+  top: 5%;
+  color: rgba(189, 167, 255, .035);
+}
+
+#about.about-v2-centered .about-centered-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  padding: clamp(44px, 6vw, 88px) 12px clamp(15px, 2vw, 27px);
+  text-align: center;
+  max-width: 1020px;
+}
+
+#about.about-v2-centered .about-centered-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  font: 700 clamp(9px, .8vw, 11px)/1.5 var(--font-body);
+  letter-spacing: .17em;
+  color: #cab8ff;
+}
+
+#about.about-v2-centered .about-centered-eyebrow svg {
+  color: #bda7ff;
+}
+
+#about.about-v2-centered .about-centered-headline {
+  margin: 0;
+  max-width: 930px;
+  font: 700 clamp(37px, 5.2vw, 74px)/1.1 var(--font-display);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+  color: #f9f7ff;
+}
+
+#about.about-v2-centered .about-centered-headline em {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-style: italic;
+  color: #c6afff;
+  letter-spacing: -.03em;
+}
+
+#about.about-v2-centered .about-centered-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  width: 220px;
+  max-width: 72%;
+  margin-block: clamp(23px, 3vw, 38px);
+}
+
+#about.about-v2-centered .about-centered-divider > span:not(.about-centered-star) {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(205, 189, 255, .48));
+}
+
+#about.about-v2-centered .about-centered-divider > span:last-child {
+  transform: rotate(180deg);
+}
+
+#about.about-v2-centered .about-centered-star {
+  color: #c5b1ff;
+  font-size: 18px;
+}
+
+#about.about-v2-centered .about-centered-description {
+  max-width: 760px;
+  text-align: center;
+}
+
+#about.about-v2-centered .about-centered-description p {
+  color: #cbd2eb;
+  font: 400 clamp(15px, 1.3vw, 18px)/1.85 var(--font-body);
+  letter-spacing: .004em;
+  margin: 0 0 17px;
+  text-wrap: pretty;
+}
+
+#about.about-v2-centered .about-centered-description strong {
+  font-weight: 650;
+  color: #f8f5ff;
+}
+
+#about.about-v2-centered .about-centered-philosophy {
+  margin: 17px 0 0;
+  padding: 17px 24px;
+  border-block: 1px solid rgba(203, 188, 255, .22);
+  color: #ece5ff;
+  font: 600 clamp(14px, 1.24vw, 17px)/1.65 var(--font-heading);
+  font-style: italic;
+  text-wrap: balance;
+}
+
+#about.about-v2-centered .about-centered-philosophy span {
+  color: #c4a9ff;
+}
+
+#about.about-v2-centered .about-centered-tags {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 31px;
+}
+
+#about.about-v2-centered .about-centered-tags span {
+  padding: 11px 15px;
+  border: 1px solid rgba(195, 176, 255, .30);
+  border-radius: 99px;
+  background: rgba(189, 167, 255, .06);
+  color: #e5dcff;
+  font: 650 10px/1.4 var(--font-body);
+  letter-spacing: .06em;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+#about.about-v2-centered .about-centered-tags span:hover {
+  border-color: rgba(195, 176, 255, .62);
+  background: rgba(189, 167, 255, .15);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  #about.about-v2-centered .about-v2-bio-top {
+    font-size: 9px;
+  }
+  #about.about-v2-centered .about-centered-content {
+    padding: 48px 0 17px;
+  }
+  #about.about-v2-centered .about-centered-headline {
+    font-size: clamp(35px, 7.5vw, 55px);
+  }
+  #about.about-v2-centered .about-centered-description p {
+    font-size: 15px;
+    line-height: 1.82;
+  }
+}
+
+@media (max-width: 480px) {
+  #about.about-v2-centered .about-centered-card {
+    padding: 22px 19px;
+  }
+  #about.about-v2-centered .about-v2-bio-top {
+    gap: 12px;
+    font-size: 8px;
+  }
+  #about.about-v2-centered .about-centered-content {
+    padding: 42px 0 8px;
+  }
+  #about.about-v2-centered .about-centered-eyebrow {
+    font-size: 9px;
+    gap: 7px;
+    letter-spacing: .08em;
+  }
+  #about.about-v2-centered .about-centered-headline {
+    font-size: clamp(31px, 9vw, 42px);
+  }
+  #about.about-v2-centered .about-centered-description p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  #about.about-v2-centered .about-centered-philosophy {
+    font-size: 14px;
+    padding: 14px 6px;
+  }
+  #about.about-v2-centered .about-centered-tags span {
+    font-size: 9px;
+    padding: 9px 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #about.about-v2-centered .about-centered-tags span {
+    transition: none;
+  }
+}

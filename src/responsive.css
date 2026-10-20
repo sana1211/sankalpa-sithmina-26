@@ -1,0 +1,290 @@
+/* V4.9 – responsive pass for 320px phones through wide desktop displays.
+   Imported last: preserves the existing navy / violet visual direction.
+   Layouts are intentionally fluid instead of device-brand specific. */
+
+/* Base guards: size calculations should not push the page sideways. */
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+#root, .page-shell, main, main > section { min-width: 0; }
+.wrap { width: 100%; }
+.project, .project-info, .project-card-main, .project-card-footer,
+.skill-group-card, .certificate-tile, .education-card,
+.contact-form-block, .modal-details { min-width: 0; }
+.project-title, .modal-details h3, .certificate-modal-info h3,
+.education-card h3 { overflow-wrap: anywhere; }
+.project-title { max-width: 100%; }
+button:focus-visible, a:focus-visible { outline: 2px solid #dacfff; outline-offset: 4px; }
+.section-anchor { scroll-margin-top: 90px; }
+
+/* Navigation: switch to the mobile drawer before desktop links can collide. */
+@media (max-width: 1100px) {
+  .nav { height: 76px; padding-inline: clamp(18px, 4vw, 45px); }
+  .nav-solid { height: 76px; }
+  .nav-links, .nav-contact { display: none; }
+  .nav-menu {
+    display: inline-grid; place-items: center;
+    width: 46px; height: 46px; min-width: 46px;
+    border-radius: 12px; border: 1px solid rgba(189,167,255,.22);
+    background: rgba(189,167,255,.06);
+    color: #f4f0ff;
+    position: relative; z-index: 91;
+  }
+  .mobile-menu {
+    top: 76px;
+    max-height: calc(100dvh - 76px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 18px clamp(20px, 5vw, 45px) max(28px, env(safe-area-inset-bottom));
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu a {
+    font-size: clamp(27px, 4.8vw, 43px);
+    min-height: 59px;
+    line-height: 1.14;
+    overflow-wrap: anywhere;
+  }
+  .mobile-menu a svg { flex: 0 0 auto; }
+  .mobile-menu p { line-height: 1.6; }
+}
+
+/* Projects: accommodate long technology categories and keep actions clickable. */
+#work .projects-grid { min-width: 0; }
+#work .project-visual { width: 100%; min-width: 0; }
+#work .project-info-compact .project-title { font-size: clamp(21px, 2.5vw, 32px); line-height: 1.2; }
+#work .project-card-footer { flex-wrap: wrap; align-items: center; row-gap: 12px; }
+#work .project-card-footer .project-type {
+  flex: 1 1 125px;
+  max-width: none;
+  text-align: left;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+#work .project-github-link { min-height: 42px; }
+#work .project-category-tabs { max-width: 100%; }
+#work .project-category-tabs button {
+  min-height: 44px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+#work .work-count { white-space: nowrap; }
+
+/* Modal content must remain scrollable on short displays and in landscape. */
+.modal-backdrop, .certificate-modal-backdrop {
+  height: 100dvh;
+  min-height: 0;
+  overscroll-behavior: contain;
+}
+.modal-panel, .certificate-modal {
+  min-width: 0;
+  max-width: 100%;
+  max-height: calc(100dvh - 36px);
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.modal-details .eyebrow { line-height: 1.65; flex-wrap: wrap; overflow-wrap: anywhere; }
+.modal-details h3 { text-wrap: balance; }
+.modal-chips { row-gap: 8px; }
+.modal-chips span { line-height: 1.45; }
+.modal-actions { row-gap: 16px; }
+.modal-close, .certificate-modal-top button { width: 44px; height: 44px; }
+
+/* Wide displays retain a legible maximum line length rather than giant columns. */
+@media (min-width: 1600px) {
+  .wrap { max-width: 1540px; }
+  .hero.hero-lanyard-only { max-height: 1120px; }
+  #work .project-info-compact .project-title { font-size: 32px; }
+}
+
+/* Laptop and landscape tablet. */
+@media (min-width: 761px) and (max-width: 1199px) {
+  .wrap { padding-inline: clamp(28px, 4vw, 58px); }
+  .section-pad { padding-block: clamp(85px, 10vw, 130px); }
+  #work .projects-grid { gap: 40px 22px; }
+  .certificate-section .certificate-gallery { gap: 17px; }
+  .certificate-section .certificate-tile-body { padding-inline: 18px; }
+  .contact h2 { font-size: clamp(72px, 10vw, 120px); }
+}
+
+/* Portrait tablets, small laptops, and large phones. */
+@media (max-width: 760px) {
+  .wrap { padding-inline: clamp(20px, 4.4vw, 34px); }
+  .section-pad { padding-block: clamp(70px, 10vw, 110px); }
+  .section-heading h2, .process-title h2 {
+    font-size: clamp(46px, 9vw, 75px); line-height: 1.12;
+  }
+  #work .projects-grid { grid-template-columns: minmax(0, 1fr); row-gap: 42px; }
+  #work .project-visual { aspect-ratio: 1.4; }
+  #work .project-info-compact .project-title { font-size: clamp(24px, 4.7vw, 32px); }
+  #work .project-card-footer .project-type { font-size: 10px; }
+  #work .project-github-link { font-size: 10px; }
+  #work .project-category-tabs { gap: 8px; }
+  #work .project-category-tabs button { font-size: 10px; padding: 10px 13px; }
+  #work .work-count { font-size: 10px; }
+
+  .education-heading h2, .skills-section-heading h2 { font-size: clamp(43px, 8.7vw, 74px); }
+  .education-card, .skill-group-card { width: 100%; }
+  .skill-groups, .skill-groups-filtered { grid-template-columns: minmax(0, 1fr); }
+  .skills-filter-buttons { justify-content: flex-start; width: 100%; }
+  .skills-filter { min-height: 44px; }
+  .skill-logo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .certificate-heading { gap: 18px; }
+  .certificate-heading h2 {
+    font-size: clamp(40px, 8vw, 68px);
+    overflow-wrap: anywhere;
+    line-height: 1.14;
+  }
+  .certificate-section .certificate-gallery { grid-template-columns: minmax(0, 1fr); }
+  .certificate-section .certificate-filter-tabs button { min-height: 44px; }
+  .certificate-section .certificate-tile-body { min-height: 0; }
+  .certificate-modal-document { max-height: 45dvh; }
+
+  .contact h2 { font-size: clamp(55px, 10vw, 91px); line-height: 1.03; }
+  .contact-action-row { gap: 17px; }
+  .contact-form-block { width: 100%; }
+  .contact-fields-grid { grid-template-columns: minmax(0,1fr); }
+  .contact-form-intro { gap: 12px; }
+  .footer-bottom { gap: 12px; }
+
+  .modal-backdrop, .certificate-modal-backdrop { padding: 12px; }
+  .modal-panel, .certificate-modal { max-height: calc(100dvh - 24px); }
+  .modal-details { padding: 30px clamp(20px,4vw,38px); }
+  .modal-details h3 { font-size: clamp(30px, 7vw, 52px); }
+  .modal-details > p { font-size: 15px; line-height: 1.7; }
+  .modal-visual--screenshot { height: min(46dvh, 420px); }
+  .modal-visual--screenshot:has(.project-screenshot--modal[data-project='automatic-plant-watering']) {
+    height: min(57dvh, 570px);
+  }
+  .certificate-modal-info { padding: 24px; }
+
+  /* Allow normal page swiping outside the draggable badge on touch screens. */
+  .lanyard-drag-canvas, .lanyard-drag-canvas canvas { touch-action: pan-y; }
+  .hero-stage-lanyard-only .lanyard-fallback-id { touch-action: none; }
+}
+
+/* Standard smartphones including 320px / 360px / 375px / 390px / 430px. */
+@media (max-width: 480px) {
+  .wrap { padding-inline: clamp(16px, 5vw, 22px); }
+  .nav { padding-inline: 17px; }
+  .nav-logo { max-width: 124px; }
+  .nav-menu { width: 44px; height: 44px; min-width: 44px; }
+  .mobile-menu { padding-inline: 20px; }
+  .mobile-menu a { font-size: clamp(26px, 7vw, 36px); min-height: 55px; }
+
+  .hero.hero-lanyard-only {
+    height: clamp(540px, 92svh, 780px);
+    min-height: 540px;
+    padding-top: 66px;
+  }
+  .hero-stage-lanyard-only { width: 100%; }
+  .hero-stage-lanyard-only .lanyard-fallback-id { max-width: 68vw; }
+
+  .section-heading h2, .process-title h2 { font-size: clamp(43px, 9.6vw, 58px); }
+  #work .work-toolbar { margin-top: 34px; }
+  #work .project-category-tabs { gap: 7px; }
+  #work .project-category-tabs button {
+    min-height: 43px;
+    padding: 10px 12px;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+  #work .projects-grid { row-gap: 34px; }
+  #work .project-visual { aspect-ratio: 1.28; }
+  #work .project-info-compact { padding-top: 17px; }
+  #work .project-info-compact .project-title { font-size: clamp(22px, 6.3vw, 28px); }
+  #work .project-card-footer { align-items: flex-start; gap: 8px; }
+  #work .project-card-footer .project-type { font-size: 9px; flex-basis: 115px; }
+  #work .project-github-link { font-size: 9px; min-height: 44px; }
+  #work .project-visual-number { top: 11px; left: 11px; padding: 8px 10px; }
+  #work .project-visit { width: 44px; height: 44px; right: 10px; bottom: 10px; }
+  #work .project-visit svg { width: 22px; height: 22px; }
+
+  #about.about-v2-centered .about-v2-title { font-size: clamp(39px, 10vw, 52px); }
+  #about.about-v2-centered .about-centered-headline { font-size: clamp(29px, 8.4vw, 40px); }
+  #about.about-v2-centered .about-v2-bio-top { flex-wrap: wrap; row-gap: 10px; }
+  #about.about-v2-centered .about-centered-card { padding: 24px 18px; }
+  #about.about-v2-centered .about-centered-description p { font-size: 15px; line-height: 1.75; }
+
+  .education-heading h2, .skills-section-heading h2 { font-size: clamp(39px, 9.5vw, 52px); }
+  .education-card.education-card-refined { padding: 20px; }
+  .skill-group-card { padding: 19px; }
+  .skill-group-card h3 { font-size: 27px; }
+  .skill-logo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .skill-logo-tile { min-height: 106px; }
+  .skills-filter-buttons { gap: 7px; }
+  .skills-filter { min-height: 42px; padding: 10px 12px; }
+
+  .certificate-heading h2 { font-size: clamp(33px, 9vw, 46px); }
+  .certificate-section .certificate-filter-tabs button { padding: 9px 12px; font-size: 10px; }
+  .certificate-section .certificate-tile-body { padding: 20px 17px; }
+  .certificate-modal-top { padding-inline: 15px; }
+  .certificate-modal-info { padding: 20px 17px; }
+  .certificate-modal-document { min-height: 175px; }
+  .certificate-modal-document img { max-height: 43dvh; }
+
+  .contact { padding-top: 82px; }
+  .contact h2 {
+    font-size: clamp(42px, 10.6vw, 58px);
+    line-height: 1.07;
+    margin-bottom: 34px;
+    overflow-wrap: anywhere;
+  }
+  .contact-asterisk { font-size: .6em; }
+  .contact-action-row { align-items: stretch; gap: 14px; }
+  .contact-main-btn { font-size: 10px; padding-left: 16px; gap: 12px; min-height: 56px; }
+  .contact-main-btn > span { width: 46px; height: 46px; flex: 0 0 auto; }
+  .contact-copy, .hero-cv-link { min-height: 44px; }
+  .contact-form-block { margin-top: 46px; padding: 20px 15px; border-radius: 20px; }
+  .contact-field input, .contact-field textarea { font-size: 16px; min-width: 0; }
+  .contact-form-footer { gap: 14px; }
+  .contact-send-btn { min-height: 48px; }
+  .contact-socials { gap: 16px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  .modal-backdrop, .certificate-modal-backdrop { padding: 8px; }
+  .modal-panel, .certificate-modal { max-height: calc(100dvh - 16px); }
+  .modal-details { padding: 21px 17px 27px; }
+  .modal-details h3 { font-size: clamp(29px, 8.4vw, 40px); }
+  .modal-details .eyebrow { font-size: 9px; }
+  .modal-details > p { font-size: 14px; }
+  .modal-visual--screenshot { height: min(40dvh, 290px); }
+  .modal-visual--screenshot:has(.project-screenshot--modal[data-project='automatic-plant-watering']) {
+    height: min(53dvh, 450px);
+  }
+  .modal-actions { gap: 16px; }
+}
+
+/* Compact phones and especially narrow 320px screens. */
+@media (max-width: 359px) {
+  .mobile-menu a { font-size: 25px; }
+  #work .project-card-footer { flex-direction: column; align-items: flex-start; }
+  #work .project-card-footer .project-type { flex: 0 0 auto; }
+  #work .project-github-link { width: 100%; justify-content: center; }
+  #work .project-category-tabs button { font-size: 9px; padding: 9px 10px; }
+  .certificate-heading h2 { font-size: 31px; }
+  .contact h2 { font-size: 41px; }
+  .contact-main-btn { max-width: 100%; }
+}
+
+/* Short landscape phone: mobile menu and dialogs must never be unreachable. */
+@media (max-height: 600px) and (orientation: landscape) {
+  .mobile-menu { padding-block: 10px max(12px, env(safe-area-inset-bottom)); }
+  .mobile-menu a { min-height: 40px; padding: 7px 0; font-size: clamp(23px, 4vw, 33px); }
+  .mobile-menu p { margin-top: 12px; font-size: 9px; }
+  .hero.hero-lanyard-only { min-height: 390px; height: 100svh; padding-top: 60px; }
+  .modal-panel, .certificate-modal { max-height: calc(100dvh - 12px); }
+  .modal-visual--screenshot { height: min(46dvh, 250px); }
+}
+
+/* Touch interactions: hover-only movement should not fight taps / scrolling. */
+@media (hover: none), (pointer: coarse) {
+  #work .project-visual { transform: none !important; }
+  .project-visit { transform: translateY(0); }
+  .cursor-dot, .cursor-ring { display: none; }
+  .certificate-tile:hover, .skill-logo-tile:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-visual, .project-screenshot-image { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
