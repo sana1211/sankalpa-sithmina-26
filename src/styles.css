@@ -944,3 +944,56 @@ p {overflow-wrap:break-word;}
     display: none !important;
   }
 }
+
+/* Project details modal: intentionally NO full-size screenshot preview.
+   Portfolio card image remains visible in the project gallery. */
+.modal-panel--details-only {
+  width: min(100%, 740px);
+  max-height: min(92dvh, 800px);
+  border: 1px solid rgba(189, 167, 255, .24);
+  border-radius: 16px;
+  overflow-y: auto;
+}
+.modal-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px clamp(22px, 5vw, 50px);
+  border-bottom: 1px solid rgba(189, 167, 255, .13);
+  background: rgba(189, 167, 255, .045);
+}
+.modal-details-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #cab7ff;
+  font: 600 10px/1.5 var(--mono);
+  letter-spacing: .15em;
+}
+.modal-details-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #bda7ff;
+  box-shadow: 0 0 14px rgba(189, 167, 255, .46);
+}
+.modal-close--inline {
+  position: static;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  cursor: pointer;
+}
+.modal-panel--details-only .modal-details {
+  padding: 36px clamp(22px, 5vw, 50px) 48px;
+}
+@media (max-width: 480px) {
+  .modal-panel--details-only {
+    border-radius: 12px;
+    max-height: calc(100dvh - 16px);
+  }
+  .modal-details-header { padding: 14px 18px; }
+  .modal-panel--details-only .modal-details { padding: 24px 18px 30px; }
+  .modal-details-kicker { font-size: 9px; }
+}
