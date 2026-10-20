@@ -1,4 +1,4 @@
-import { Asterisk, Sparkles } from 'lucide-react';
+import { Asterisk } from 'lucide-react';
 import { Reveal } from '../shared/Reveal';
 import './about-centered.css';
 

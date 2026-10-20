@@ -1,5 +1,4 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
-import { profile } from '../../data';
+import { ArrowRight } from 'lucide-react';
 import brandLogo from '../../assets/brand-logo.png';
 
 export default function Footer() {
