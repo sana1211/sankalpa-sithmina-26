@@ -997,3 +997,7 @@ p {overflow-wrap:break-word;}
   .modal-panel--details-only .modal-details { padding: 24px 18px 30px; }
   .modal-details-kicker { font-size: 9px; }
 }
+
+/* Project cards now display previews only; no details modal or card click action. */
+#work .project-visual--static { cursor: default; }
+#work .project-info-compact h3.project-title { margin: 0; cursor: default; }

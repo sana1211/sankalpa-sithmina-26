@@ -13,7 +13,7 @@ const filters: Filter[] = [
   'All',
   ...projectCategories.filter(category => projects.some(project => project.category === category)),
 ];
-function ProjectCard({ project, index, onOpen }: { project: Project; index: number; onOpen: (p: Project) => void }) {
+function ProjectCard({ project, index }: { project: Project; index: number }) {
   const x = useMotionValue(0), y = useMotionValue(0);
   const tiltX = useSpring(useTransform(y, [-200,200], [4,-4]), {stiffness:130,damping:18});
   const tiltY = useSpring(useTransform(x, [-250,250], [-4,4]), {stiffness:130,damping:18});
@@ -25,13 +25,13 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
     x.set(e.clientX-r.left-r.width/2); y.set(e.clientY-r.top-r.height/2);
   };
   return <motion.article className="project" {...fadeUp} transition={{duration:.8,delay:(index%2)*.1}}>
-    <motion.button className="project-visual" aria-label={`View details of ${project.name}`} onClick={() => onOpen(project)} onMouseMove={handleMouseMove} onMouseLeave={() => {x.set(0);y.set(0);}} style={{rotateX:tiltX,rotateY:tiltY, transformPerspective:1300}}>
-      {project.image ? <ProjectScreenshot project={project}/> : <ProjectArtwork kind={project.artwork}/>}<span className="project-visual-number">{project.number} / {String(projects.length).padStart(2, '0')}</span><span className="project-visit"><ArrowUpRight size={27}/></span>
-    </motion.button>
+    <motion.div className="project-visual project-visual--static" onMouseMove={handleMouseMove} onMouseLeave={() => {x.set(0);y.set(0);}} style={{rotateX:tiltX,rotateY:tiltY, transformPerspective:1300}}>
+      {project.image ? <ProjectScreenshot project={project}/> : <ProjectArtwork kind={project.artwork}/>}<span className="project-visual-number">{project.number} / {String(projects.length).padStart(2, '0')}</span>
+    </motion.div>
     <div className="project-info project-info-compact">
       <div className="project-card-main">
         <span className="project-eyebrow">{project.eyebrow}</span>
-        <button className="project-title" onClick={() => onOpen(project)}>{project.name}<ArrowUpRight size={20}/></button>
+        <h3 className="project-title">{project.name}</h3>
       </div>
       <div className="project-card-footer">
         <span className="project-type">{project.category.toUpperCase()} / {project.year}</span>
@@ -50,7 +50,7 @@ function ProjectCard({ project, index, onOpen }: { project: Project; index: numb
   </motion.article>;
 }
 
-export default function Work({ onOpen }: { onOpen: (p: Project) => void }) {
+export default function Work() {
   const [filter, setFilter] = useState<Filter>('All');
   const filtered = filter === 'All'
     ? projects
@@ -89,7 +89,7 @@ export default function Work({ onOpen }: { onOpen: (p: Project) => void }) {
         </div>
         <motion.div id="filtered-projects" className="projects-grid grid" layout>
           {filtered.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} onOpen={onOpen}/>
+            <ProjectCard key={project.id} project={project} index={index}/>
           ))}
         </motion.div>
         <Reveal className="work-end">
