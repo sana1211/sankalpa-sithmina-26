@@ -32,6 +32,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       <div className="project-card-main">
         <span className="project-eyebrow">{project.eyebrow}</span>
         <h3 className="project-title">{project.name}</h3>
+        {project.tech.length > 0 && (
+          <ul className="project-tech-list" aria-label={`${project.name} technologies`}>
+            {project.tech.map(technology => (
+              <li className="project-tech-tag" key={technology}>{technology}</li>
+            ))}
+          </ul>
+        )}
       </div>
       <div className="project-card-footer">
         <span className="project-type">{project.category.toUpperCase()} / {project.year}</span>
