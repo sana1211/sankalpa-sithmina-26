@@ -2,7 +2,7 @@
 
 <img src="src/assets/brand-logo.png" alt="Sankalpa Creative Studio logo" width="250" />
 
-# NEON ATELIER — Creative Developer Portfolio
+# SANKALPA SITHMINA
 
 **Designing ideas. Building experiences.**
 
@@ -21,7 +21,7 @@ A modern, interactive personal portfolio showcasing creative frontend developmen
 
 ## ✨ About the project
 
-**NEON ATELIER** is my personal creative portfolio, designed to go beyond a conventional project gallery. It combines a cinematic navy-and-violet aesthetic with expressive motion, an interactive 3D ID card, responsive layouts, and a curated showcase of my work in web development, applications, and embedded systems.
+ is my personal creative portfolio, designed to go beyond a conventional project gallery. It combines a cinematic navy-and-violet aesthetic with expressive motion, an interactive 3D ID card, responsive layouts, and a curated showcase of my work in web development, applications, and embedded systems.
 
 I built it to express how I approach digital products: **clean design, meaningful interaction, and attention to detail.**
 
