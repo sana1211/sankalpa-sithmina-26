@@ -108,7 +108,7 @@ export const projects: Project[] = [
     year: '2026',
     category: 'IoT & Embedded Systems',
     artwork: 'arduino',
-    image: 'projects/automatic-plant-watering.png',
+    image: 'projects/automatic watering system.jpg',
     tech: ['Arduino UNO','Embedded C++','Soil Moisture Sensor','I2C LCD','Relay Module','IoT'],
     source: 'https://github.com/sana1211/Automatic_Plant_Watering_System',
   },
