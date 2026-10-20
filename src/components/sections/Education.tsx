@@ -38,7 +38,7 @@ export default function Education() {
                       <div className="education-institution">{item.institution}</div>
                       <p>{item.description}</p>
                     </div>
-                    <div className="education-card-foot"><span>KNOWLEDGE IN PRACTICE</span><span className="education-card-endmark" aria-hidden="true">✳</span></div>
+                    <div className="education-card-foot"><span>KNOWLEDGE IN PRACTICE</span><span className="education-card-endmark" aria-hidden="true">✳︎</span></div>
                   </article>
                 </Reveal>
               );

@@ -88,7 +88,7 @@ export default function Contact() {
       <Reveal>
         <div className="eyebrow contact-eyebrow"><span className="availability-light" /> 06 / LET'S COLLABORATE</div>
         <span className="contact-sub">HAVE AN IDEA? LET'S BUILD SOMETHING GREAT.</span>
-        <h2>LET'S MAKE<br/><i>IT <span>UNREAL</span><span className="contact-asterisk">✳</span></i></h2>
+        <h2>LET'S MAKE<br/><i>IT <span>UNREAL</span><span className="contact-asterisk">✳︎</span></i></h2>
         <div className="contact-action-row flex flex-wrap items-center">
           <a className="contact-main-btn" href={`mailto:${profile.email}?subject=Let%27s%20create%20something%20amazing`}>EMAIL ME DIRECTLY <span><ArrowUpRight size={32}/></span></a>
           <button className="contact-copy" type="button" onClick={copyEmail}>{copied ? <Check size={19}/> : <Copy size={19}/>} {copied ? 'EMAIL COPIED!' : 'COPY EMAIL'}</button>

@@ -77,7 +77,18 @@
 
 #about.about-v2-centered .about-centered-star {
   color: #c5b1ff;
-  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 20px;
+  line-height: 1;
+}
+
+#about.about-v2-centered .about-centered-star svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
 }
 
 #about.about-v2-centered .about-centered-description {

@@ -40,7 +40,7 @@ export default function About() {
 
               <div className="about-centered-divider" aria-hidden="true">
                 <span />
-                <span className="about-centered-star">✳</span>
+                <span className="about-centered-star"><Asterisk size={20} strokeWidth={1.7} aria-hidden="true" /></span>
                 <span />
               </div>
 

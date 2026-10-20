@@ -108,7 +108,7 @@
 .skills-filter-label{display:flex;gap:24px;align-items:center;white-space:nowrap;font:500 10px var(--mono);letter-spacing:.13em;color:#aaadb1}.skills-filter-label span{font-size:18px;color:var(--acid)}
 .skills-filter-buttons{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:7px}.skills-filter{padding:12px 15px;border:1px solid rgba(255,255,255,.13);border-radius:999px;background:rgba(255,255,255,.015);font:500 10px var(--mono);letter-spacing:.06em;color:#b0b3b8;transition:color .25s,border-color .25s,background .25s}.skills-filter:hover{border-color:rgba(var(--accent-rgb),.6);color:white}.skills-filter.active{color:#121511;border-color:var(--acid);background:var(--acid)}
 .skill-groups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:32px;min-height:640px}.skill-groups-filtered{grid-template-columns:minmax(0,1fr);min-height:350px}
-.skill-group-card{position:relative;display:flex;flex-direction:column;overflow:hidden;padding:36px;background:#1b2444;border:1px solid rgba(255,255,255,.075);border-radius:23px;min-height:335px;transition:background .3s,border-color .3s}.skill-group-card::after{position:absolute;content:"✳";top:-100px;right:-16px;font-size:240px;line-height:1;color:rgba(var(--accent-rgb),.025);pointer-events:none}.skill-group-card:hover{background:#202428;border-color:rgba(var(--accent-rgb),.35)}
+.skill-group-card{position:relative;display:flex;flex-direction:column;overflow:hidden;padding:36px;background:#1b2444;border:1px solid rgba(255,255,255,.075);border-radius:23px;min-height:335px;transition:background .3s,border-color .3s}.skill-group-card::after{position:absolute;content:"✳︎";top:-100px;right:-16px;font-size:240px;line-height:1;color:rgba(var(--accent-rgb),.025);pointer-events:none}.skill-group-card:hover{background:#202428;border-color:rgba(var(--accent-rgb),.35)}
 .skill-group-top{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-start;gap:15px;font:500 9px var(--mono);color:#898e96;letter-spacing:.12em}.skill-group-icon{display:grid;place-items:center;width:51px;height:51px;border:1px solid rgba(var(--accent-rgb),.38);border-radius:15px;color:var(--acid);background:rgba(var(--accent-rgb),.07)}
 .skill-group-card h3{position:relative;z-index:1;font:600 clamp(26px,2.8vw,40px)/1.1 var(--display);letter-spacing:-.035em;color:#f2f3f4;margin-top:28px}.skill-group-card p{position:relative;z-index:1;max-width:410px;font-size:13px;line-height:1.7;color:#9299a1;margin-top:12px;min-height:44px}
 .skill-chips{position:relative;z-index:1;display:flex;align-content:flex-start;flex-wrap:wrap;gap:9px;margin:26px 0 25px}.skill-chips span{display:inline-flex;align-items:center;padding:11px 13px;border:1px solid rgba(255,255,255,.12);border-radius:8px;background:rgba(255,255,255,.035);color:#d8dce1;font:500 11px var(--mono);transition:border-color .2s,color .2s,transform .2s}.skill-chips span:hover{color:var(--acid);border-color:rgba(var(--accent-rgb),.48);transform:translateY(-2px)}
@@ -652,7 +652,7 @@ body, #root, .page-shell { background-color:#0b1228; color:#f5f5ff; }
   box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 22px 80px rgba(4,8,28,.16);
 }
 .about-v2-bio-only::before {
-  content:'✳';
+  content:'✳︎';
   position:absolute;
   right:-25px;
   top:2%;
@@ -932,4 +932,15 @@ p {overflow-wrap:break-word;}
 }
 @media (prefers-reduced-motion: reduce) {
   #work .project-category-tabs button { transition: none; }
+}
+
+
+/* iOS Safari: avoid decorative text symbol overlaying the About headline.
+   Other sections, colors and cards remain unchanged. */
+@media (max-width: 760px) {
+  #about.about-v2-centered .about-v2-bio-only::before,
+  #about.about-v2-centered .about-centered-card::before {
+    content: none !important;
+    display: none !important;
+  }
 }

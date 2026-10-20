@@ -93,7 +93,7 @@ export default function Work({ onOpen }: { onOpen: (p: Project) => void }) {
           ))}
         </motion.div>
         <Reveal className="work-end">
-          <div className="work-end-line"/><span><span className="tiny-spark">✳</span></span><div className="work-end-line"/>
+          <div className="work-end-line"/><span><span className="tiny-spark">✳︎</span></span><div className="work-end-line"/>
         </Reveal>
       </div>
     </section>

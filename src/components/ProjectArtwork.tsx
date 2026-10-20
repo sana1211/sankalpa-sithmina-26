@@ -59,7 +59,7 @@ function AgriArtwork() {
 function VogueArtwork() {
   return (
     <div className="art art-vogue">
-      <div className="vogue-top"><span>NEW SEASON / VOL. 01</span><span>✳ &nbsp; THE EDIT</span></div>
+      <div className="vogue-top"><span>NEW SEASON / VOL. 01</span><span>✳︎ &nbsp; THE EDIT</span></div>
       <div className="vogue-huge">VOGUE<span>®</span></div>
       <svg viewBox="0 0 700 490" className="vogue-fashion" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
