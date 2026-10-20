@@ -221,7 +221,7 @@
 .hero-stage-lanyard-only .lanyard-fallback-strap.left{left:calc(50% - 159px);transform-origin:top center}
 .hero-stage-lanyard-only .lanyard-fallback-strap.right{right:calc(50% - 159px);transform-origin:top center}
 .hero-stage-lanyard-only .lanyard-fallback-clip{top:30%;left:calc(50% - 18px);width:36px;height:53px;transition:transform .14s ease-out}
-.hero-stage-lanyard-only .lanyard-fallback-id{width:clamp(210px,30vw,350px);max-height:63vh;aspect-ratio:1000/1420;border-radius:17px;border-width:8px;transform-origin:50% 0%;animation:none;transition:transform .7s cubic-bezier(.24,.72,.2,1);cursor:grab;touch-action:none}
+.hero-stage-lanyard-only .lanyard-fallback-id{width:clamp(210px,30vw,350px);max-height:63vh;aspect-ratio:1000/1420;border-radius:clamp(18px,2.2vw,26px);border-width:8px;transform-origin:50% 0%;animation:none;transition:transform .7s cubic-bezier(.24,.72,.2,1);cursor:grab;touch-action:none}
 .hero-stage-lanyard-only .lanyard-fallback-id.is-held{transition:none;cursor:grabbing}
 .hero-stage-lanyard-only .lanyard-fallback-id img{pointer-events:none;user-select:none}
 @media(max-width:760px){.hero.hero-lanyard-only{height:clamp(650px,100svh,880px);min-height:650px;padding:65px 0 0}.hero-stage-lanyard-only{width:100vw;max-width:760px}.hero-stage-lanyard-only .lanyard-fallback-id{width:clamp(190px,47vw,300px)}}

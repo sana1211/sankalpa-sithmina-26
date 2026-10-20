@@ -15,24 +15,34 @@ const clamp = THREE.MathUtils.clamp;
 type HangerPosition = { x: number; y: number };
 type MotionState = HangerPosition & { vx: number; vy: number; targetX: number; targetY: number; angle: number; angularSpeed: number };
 
+// One true circular corner radius on ALL four edges, on BOTH sides of the ID.
+// Use quarter-circle arcs (not quadratic corners) so the curve is exactly
+// symmetrical even while the card is rotating in the 3D scene.
+const BADGE_CORNER_RADIUS = .205;
+
 function makeCardShape() {
-  const w = BADGE_WIDTH, h = BADGE_HEIGHT, r = .135;
+  const halfW = BADGE_WIDTH / 2;
+  const halfH = BADGE_HEIGHT / 2;
+  const r = Math.min(BADGE_CORNER_RADIUS, halfW, halfH);
   const s = new THREE.Shape();
-  s.moveTo(-w / 2 + r, -h / 2);
-  s.lineTo(w / 2 - r, -h / 2);
-  s.quadraticCurveTo(w / 2, -h / 2, w / 2, -h / 2 + r);
-  s.lineTo(w / 2, h / 2 - r);
-  s.quadraticCurveTo(w / 2, h / 2, w / 2 - r, h / 2);
-  s.lineTo(-w / 2 + r, h / 2);
-  s.quadraticCurveTo(-w / 2, h / 2, -w / 2 + r, h / 2);
-  s.lineTo(-w / 2, -h / 2 + r);
-  s.quadraticCurveTo(-w / 2, -h / 2, -w / 2 + r, -h / 2);
+
+  // Clockwise around the card, starting on the bottom edge. All the four
+  // arc centres are inset by the identical radius r.
+  s.moveTo(-halfW + r, -halfH);
+  s.lineTo(halfW - r, -halfH);
+  s.absarc(halfW - r, -halfH + r, r, -Math.PI / 2, 0, false);
+  s.lineTo(halfW, halfH - r);
+  s.absarc(halfW - r, halfH - r, r, 0, Math.PI / 2, false);
+  s.lineTo(-halfW + r, halfH);
+  s.absarc(-halfW + r, halfH - r, r, Math.PI / 2, Math.PI, false);
+  s.lineTo(-halfW, -halfH + r);
+  s.absarc(-halfW + r, -halfH + r, r, Math.PI, Math.PI * 1.5, false);
   s.closePath();
   return s;
 }
 
 function makeFaceGeometry(shape: THREE.Shape) {
-  const geometry = new THREE.ShapeGeometry(shape, 14);
+  const geometry = new THREE.ShapeGeometry(shape, 24);
   const uv = geometry.getAttribute('uv');
   const pos = geometry.getAttribute('position');
   for (let i = 0; i < pos.count; i++) {
